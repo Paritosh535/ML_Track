@@ -6,3 +6,4 @@ Track machine learning training and evaluation through mlflow and mail facility.
        
        
 ### How to Run
+        mlflow server #default 5000 port
