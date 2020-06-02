@@ -15,6 +15,11 @@ def create(url, experiment_name, run_name, params,set_tag):
     mlflow.end_run()
     return run_id
 
+def log_params(run_id,set_param):
+    with mlflow.start_run(run_id=run_id):
+        mlflow.log_params(set_param)
+    mlflow.end_run()
+    
 def log_metrics(run_id,set_metrics):
     with mlflow.start_run(run_id=run_id):
         step=set_metrics.pop("step")
@@ -23,7 +28,7 @@ def log_metrics(run_id,set_metrics):
     
 def log_artifact(run_id,filename,data):
     with mlflow.start_run(run_id=run_id):
-        with open(filename, "a") as f:
+        with open(filename, "a+") as f:
             f.write(f"{data}")
             mlflow.log_artifact(filename)
     mlflow.end_run()
@@ -61,3 +66,5 @@ def log_artifact(run_id,filename,data):
 
 # runid=create(URL,EXPERIMENT_NAME,RUN_NAME,PARAMS,SET_TAG)
 # log_metrics(runid,SET_METRICS)
+# log_artifact(runid,"out.txt","hello world")
+# log_params(runid,{"precsion":90,"recall":49})
