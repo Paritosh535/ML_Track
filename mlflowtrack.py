@@ -32,8 +32,7 @@ def log_artifact(run_id,filename,data):
             f.write(f"{data}")
             mlflow.log_artifact(filename)
     mlflow.end_run()
-    
-    
+
 
 # URL="http://127.0.0.1:5000"
 # EXPERIMENT_NAME="paritoshy"
