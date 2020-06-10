@@ -9,4 +9,3 @@ Track machine learning training and evaluation through mlflow and mail facility.
         mlflow server #default 5000 port
         
         
-Modify mlfowtrack.py as per req
